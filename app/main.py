@@ -12,4 +12,4 @@ class CleanUpFile:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.file.close()
-        os.remove("../tests/" + self.filename)
+        os.remove(self.filename)
