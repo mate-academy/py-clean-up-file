@@ -3,7 +3,7 @@ import os
 
 
 class CleanUpFile:
-    def __init__(self, file_name) -> None:
+    def __init__(self, file_name: str) -> None:
         self.filename = file_name
 
     def __enter__(self) -> CleanUpFile:
