@@ -2,8 +2,6 @@ from os import remove
 
 
 class CleanUpFile:
-    # write your code here
-    pass
     def __init__(self, filename: str):
         self.filename = filename
         self.file = None
