@@ -9,7 +9,6 @@ class CleanUpFile(object):
         return self
 
     def __exit__(self,
-                 exc_type: None,
-                 exc_value: None,
+                 exc_type: None, exc_value: None,
                  exc_traceback: None) -> None:
         os.remove(self.filename)
