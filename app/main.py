@@ -4,7 +4,7 @@ from typing import Any
 
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
-        self.filename = filename
+        self.filename = f"{filename}.txt"
         self.file = None
 
     def __enter__(self) -> Any:
