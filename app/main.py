@@ -13,9 +13,3 @@ class CleanUpFile:
     def __exit__(self, exc_type, exc_value, exc_traceback) -> None:
         self.file.close()
         os.remove(self.filename)
-
-
-if __name__ == '__main__':
-    with CleanUpFile("file.txt"):
-        with open("file.txt", "w") as file:
-            file.write("Hello Mate!")

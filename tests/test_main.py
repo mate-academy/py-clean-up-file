@@ -31,7 +31,7 @@ def test_check_if_file_is_deleted_with_exception():
 
 def test_clean_up_file_constructor():
     clean_up = CleanUpFile(filename)
-    assert clean_up.filename == "file.txt", "self.filename should equal filename given to constructor"
+    assert clean_up.filename == "file.txt.txt", "self.filename should equal filename given to constructor"
 
 
 def test_clean_up_file_enter_method():
