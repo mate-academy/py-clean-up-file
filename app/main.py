@@ -1,4 +1,5 @@
 import os
+from typing import Any
 
 
 class CleanUpFile:
@@ -6,10 +7,11 @@ class CleanUpFile:
         self.filename = filename
         self.file = None
 
-    def __enter__(self):
+    def __enter__(self) -> Any:
         self.file = open(self.filename, "r")
-        return self.file.read()
+        return self.file
 
-    def __exit__(self, exc_type, exc_value, exc_traceback) -> None:
+    def __exit__(self, exc_type: Any, exc_value: Any, exc_traceback: Any)\
+            -> None:
         self.file.close()
         os.remove(self.filename)
