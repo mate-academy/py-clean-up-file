@@ -1,17 +1,13 @@
 import os
-from typing import Any
 
 
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
-        self.filename = f"{filename}.txt"
-        self.file = None
+        self.filename = filename
 
-    def __enter__(self) -> Any:
-        self.file = open(self.filename, "r")
-        return self.file
+    def __enter__(self) -> object:
+        return self
 
-    def __exit__(self, exc_type: Any, exc_value: Any, exc_traceback: Any)\
-            -> None:
-        self.file.close()
+    def __exit__(self, exc_type: None, exc_value: None,
+                 exc_traceback: None) -> None:
         os.remove(self.filename)
