@@ -1,4 +1,4 @@
-import os
+from os import remove
 
 
 class CleanUpFile:
@@ -9,4 +9,4 @@ class CleanUpFile:
         return self
 
     def __exit__(self, exc_type: any, exc_val: any, exc_tb: any) -> None:
-        os.remove(self.file_name)
+        remove(self.file_name)
