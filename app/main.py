@@ -10,7 +10,6 @@ class CleanUpFile:
         self.file = None
 
     def __enter__(self) -> CleanUpFile:
-        self.file = open(self.filename)
         return self
 
     def __exit__(
@@ -19,7 +18,5 @@ class CleanUpFile:
             exc_val: TracebackException,
             exc_tb: TracebackType
     ) -> None:
-        self.file.close()
 
-    def __del__(self) -> None:
         os.remove(self.filename)
