@@ -1,4 +1,3 @@
-from typing import TextIO
 import os
 
 
@@ -10,7 +9,12 @@ class CleanUpFile:
         self.file = open(self.filename, "a+")
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(
+            self,
+            exc_type: Exception,
+            exc_val: Exception,
+            exc_tb: Exception
+    ) -> None:
         self.file.close()
         os.remove(self.filename)
 
