@@ -18,4 +18,3 @@ class CleanUpFile:
                  ) -> None:
         self.file.close()
         os.remove(self.filename)
-
