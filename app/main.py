@@ -8,7 +8,7 @@ class CleanUpFile:
         self.file = None
 
     def __enter__(self) -> Any:
-        self.file = open(self.filename,  "w")
+        self.file = open(self.filename, "w")
         return self
 
     def __exit__(self, exc_type: str, exc_val: str, exc_tb: str) -> None:
