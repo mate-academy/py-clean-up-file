@@ -1,5 +1,6 @@
+from __future__ import annotations
 import os
-from typing import Self, Union
+from typing import Union
 from types import TracebackType
 
 
@@ -7,7 +8,7 @@ class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self) -> Self:
+    def __enter__(self) -> CleanUpFile:
         return self
 
     def __exit__(
