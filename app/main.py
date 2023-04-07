@@ -1,6 +1,7 @@
 import os
-import traceback
 from typing import Optional
+from typing import Union
+import traceback
 
 
 class CleanUpFile:
@@ -14,7 +15,7 @@ class CleanUpFile:
             self,
             exc_type: Optional[type],
             exc_value: Optional[BaseException],
-            tb: Optional[traceback]
+            tb: Union[None, traceback]
     ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
