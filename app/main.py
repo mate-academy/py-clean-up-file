@@ -1,3 +1,24 @@
+import os
+import traceback
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+
+    def __enter__(self) -> object:
+        return self
+
+    def __exit__(
+            self,
+            exc_type: object,
+            exc_value: object,
+            tb: traceback.TracebackType
+    ) -> None:
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
+
+
+with CleanUpFile("file.txt"):
+    with open("file.txt", "w") as file:
+        file.write("Hello Mate!")
