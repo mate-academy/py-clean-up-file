@@ -1,5 +1,6 @@
 import os
 import traceback
+from typing import Optional
 
 
 class CleanUpFile:
@@ -13,7 +14,7 @@ class CleanUpFile:
             self,
             exc_type: object,
             exc_value: object,
-            tb: traceback.TracebackType
+            tb: Optional[traceback]
     ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
