@@ -15,6 +15,7 @@ class CleanUpFile:
                  exc_type: Any,
                  exc_val: Any,
                  exc_tb: Any) -> None:
+
         try:
             os.remove(self.filename)
         except FileNotFoundError:
