@@ -1,4 +1,5 @@
 import os
+from types import TracebackType
 
 
 class CleanUpFile:
@@ -8,7 +9,12 @@ class CleanUpFile:
     def __enter__(self) -> "CleanUpFile":
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(
+            self,
+            exc_type: type[BaseException],
+            exc_val: BaseException,
+            exc_tb: TracebackType
+    ) -> None:
         try:
             os.remove(self.filename)
         except FileNotFoundError:
