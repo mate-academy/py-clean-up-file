@@ -14,8 +14,5 @@ class CleanUpFile:
             exc_value: None,
             exc_traceback: None
     ) -> None:
-
-        os.remove(self.filename)
-
-
-
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
