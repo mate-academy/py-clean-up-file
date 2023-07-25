@@ -5,7 +5,8 @@ import os
 
 class CleanUpFile:
     # write your code here
-    def __init__(self, filename: str) -> None:
+    def __init__(self,
+                 filename: str) -> None:
         self.filename = filename
         self.mode = "w"
         self.file = None
