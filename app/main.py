@@ -15,4 +15,4 @@ class CleanUpFile:
             exc_tb: Exception
     ) -> None:
         if os.path.exists(self.filename):
-            os.remove()
+            os.remove(self.filename)
