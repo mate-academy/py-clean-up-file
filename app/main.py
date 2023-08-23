@@ -17,5 +17,8 @@ class CleanUpFile:
         exc_tb: TracebackType | None,
     ) -> bool:
         if os.path.exists(self.filename):
-            os.remove(self.filename)
+            try:
+                os.remove(self.filename)
+            except OSError as e:
+                print(f"Cannot remove {self.filename}: {e}")
         return False
