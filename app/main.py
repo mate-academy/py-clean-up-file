@@ -15,4 +15,7 @@ class CleanUpFile:
             exc_val: object,
             exc_tb: object
     ) -> None:
-        remove(self.filename)
+        try:
+            remove(self.filename)
+        except FileNotFoundError:
+            raise FileNotFoundError("The file does not exist")
