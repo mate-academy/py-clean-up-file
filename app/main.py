@@ -10,6 +10,6 @@ class CleanUpFile:
 
     def __exit__(self) -> None:
         try:
-            os.remove(self.filename)
+            os.remove(self.name)
         except FileNotFoundError:
             pass
