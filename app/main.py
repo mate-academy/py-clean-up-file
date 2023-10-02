@@ -1,13 +1,20 @@
-class CleanUpFile:
-    def __init__(file_name: str, method: str) -> None:
-        self.file_obj = open(file_name, method)
-    
-    def __enter__(self):
-        return self.file_obj
+import os
 
-    def __exit__(self):
-        self.file_obj.close()
-    
-    def __del__(self):
-        del(self.file_obj)
+
+class CleanUpFile:
+    def __init__(self, filename):
+        self.filename = filename
+
+    def __enter__(self):
+        pass
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        try:
+            with open(self.filename, 'r'):
+                pass
+        except FileNotFoundError:
+            pass
+        else:
+            os.remove(self.filename)
+            print(f"The file '{self.filename}' has been removed.")
       
