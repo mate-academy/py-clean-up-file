@@ -6,7 +6,7 @@ class CleanUpFile:
         self.filename = filename
 
     def __enter__(self) -> None:
-        return self
+        pass
 
     def __exit__(self, *args) -> None:
         os.remove(self.filename)
