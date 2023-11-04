@@ -1,7 +1,7 @@
+import os
 from __future__ import annotations
 from types import TracebackType
 from typing import Optional, Type
-from os import path, remove
 
 
 class CleanUpFile:
@@ -17,5 +17,5 @@ class CleanUpFile:
             exc_val: Optional[BaseException],
             exc_tb: Optional[TracebackType]
     ) -> None:
-        if path.exists(self.filename):
-            remove(self.filename)
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
