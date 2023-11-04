@@ -1,7 +1,7 @@
-import os
 from __future__ import annotations
 from types import TracebackType
 from typing import Optional, Type
+import os
 
 
 class CleanUpFile:
