@@ -16,7 +16,3 @@ class CleanUpFile:
 
     def __del__(self) -> None:
         os.remove(self.file_name)
-
-
-with CleanUpFile("test.txt", "w") as file:
-    file.write("!!!!")
