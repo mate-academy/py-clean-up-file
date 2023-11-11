@@ -11,7 +11,7 @@ class CleanUpFile:
         self.file = open(self.file_name, self.mode)
         return  self.file
 
-    def __exit__(self, exc_type: None,                  exc_val: None,                 exc_tb: None) -> None:
+    def __exit__(self,exc_type: None,                 exc_val: None,                exc_tb:None) -> None:
         self.file.close()
 
     def __del__(self) -> None:
