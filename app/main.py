@@ -1,2 +1,16 @@
+from __future__ import annotations
+from os import remove
+
+
 class CleanUpFile:
-    # write yo
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+        self.file = None
+
+    def __enter__(self) -> CleanUpFile:
+        self.file = open(self.filename, "w")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        self.file.close()
+        remove(self.filename)
