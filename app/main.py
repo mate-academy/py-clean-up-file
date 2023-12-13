@@ -11,4 +11,3 @@ class CleanUpFile:
     def __exit__(self, type, value, traceback):
         if os.path.exists(self.filename):
             os.remove(self.filename)
-
