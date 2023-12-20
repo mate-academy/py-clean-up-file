@@ -16,4 +16,7 @@ class CleanUpFile:
             exc_value: Any,
             exc_traceback: Any
     ) -> None:
-        os.remove(self.filename)
+        try:
+            os.remove(self.filename)
+        except FileNotFoundError:
+            print("The system cannot find the file specified")
