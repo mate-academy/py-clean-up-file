@@ -6,16 +6,11 @@ class CleanUpFile:
         self.filename = filename
 
     def __enter__(self) -> None:
+        return self
+
+    def __exit__(self, *args) -> None:
         try:
-            print(open(self.filename, "r"), "content")
+            os.remove(self.filename)
         except FileNotFoundError as error:
-            print(error, "error")
+            print(error, "error in manager")
             return None
-
-    def __exit__(self) -> None:
-        os.remove(self.filename)
-
-
-with CleanUpFile("file.txt"):
-    with open("file.txt", "w") as file:
-        file.write("Hello Mate!")
