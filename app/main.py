@@ -6,7 +6,7 @@ class CleanUpFile:
         self.filename: str = filename
 
     def __enter__(self) -> TextIO:
-        return self.file_obj
+        return self
 
     def __exit__(
         self,
@@ -14,4 +14,6 @@ class CleanUpFile:
         exc_value: Optional,
         traceback: Optional
     ) -> None:
-        self.file_obj.close()
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
+            print(f"The file '{self.filename}' has been removed.")
