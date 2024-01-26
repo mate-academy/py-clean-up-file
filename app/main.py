@@ -1,4 +1,4 @@
-from os.path
+from os
 
 
 class CleanUpFile:
