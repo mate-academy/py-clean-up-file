@@ -2,8 +2,8 @@ from typing import TextIO
 
 
 class CleanUpFile:
-    def __init__(self, file_name: str, method: str) -> None:
-        self.file_obj: TextIO = open(file_name, method)
+    def __init__(self, file_name: str) -> None:
+        self.file_obj: TextIO = open(file_name)
 
     def __enter__(self) -> TextIO:
         return self.file_obj
