@@ -1,4 +1,4 @@
-from typing import TextIO, Optional
+from os.path
 
 
 class CleanUpFile:
@@ -10,10 +10,9 @@ class CleanUpFile:
 
     def __exit__(
         self,
-        exc_type: Optional,
-        exc_value: Optional,
-        traceback: Optional
+        exc_type: BaseException,
+        exc_val: BaseException,
+        exc_tb: bool
     ) -> None:
-        if os.path.exists(self.filename):
+        if self.filename and os.path.exists(self.filename):
             os.remove(self.filename)
-            print(f"The file '{self.filename}' has been removed.")
