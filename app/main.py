@@ -1,5 +1,6 @@
 from __future__ import annotations
 import os
+from types import TracebackType
 
 
 class CleanUpFile:
@@ -9,5 +10,10 @@ class CleanUpFile:
     def __enter__(self) -> CleanUpFile:
         return self
 
-    def __exit__(self, exc_type: None, exc_val: None, exc_tb: None) -> None:
+    def __exit__(
+            self,
+            exc_type: BaseException,
+            exc_val: BaseException,
+            exc_tb: TracebackType
+    ) -> None:
         os.remove(self.filename)
