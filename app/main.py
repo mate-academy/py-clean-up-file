@@ -10,4 +10,4 @@ class CleanUpFile:
         return self
 
     def __exit__(self, exc_type: Exception, exc_val: Any, exc_tb: Any) -> Any:
-        os.remove(f"D:/MateAcademy/py-clean-up-file/{self.filename}")
+        os.remove(os.path.abspath(f"{self.filename}"))
