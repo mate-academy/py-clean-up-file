@@ -1,19 +1,13 @@
+import os
+from typing import Any
+
+
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self) -> None:
+    def __enter__(self) -> Any:
         return self
 
-    def __exit__(self, exc_type: str) -> None:
-        try:
-            with open(self.filename, "r"):
-                pass
-            if exc_type is None:
-                self._remove_file()
-        except FileNotFoundError:
-            pass
-
-    def _remove_file(self) -> None:
-        with open(self.filename, "w"):
-            pass
+    def __exit__(self, exc_type: Exception, exc_val: Any, exc_tb: Any) -> Any:
+        os.remove(os.path.abspath(f"{self.filename}"))
