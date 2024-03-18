@@ -1,5 +1,4 @@
 import os
-import Any
 
 
 class CleanUpFile:
@@ -11,8 +10,8 @@ class CleanUpFile:
         return self
 
     def __exit__(self,
-                 exc_type: Any,
-                 exc_value: Any,
-                 traceback: Any) -> None:
+                 exc_type: object,
+                 exc_value: object,
+                 traceback: object) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
