@@ -16,4 +16,7 @@ class CleanUpFile:
         ext_value: Any,
         ext_traceback: Any
     ) -> None:
-        os.remove(self.filename)
+        try:
+            os.remove(self.filename)
+        except FileNotFoundError:
+            pass
