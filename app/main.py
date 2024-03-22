@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 from typing import Any
 
@@ -6,7 +7,7 @@ class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self) -> str:
+    def __enter__(self) -> CleanUpFile:
         if os.path.isfile(self.filename):
             self.file = open(self.filename, "w")
         return self
