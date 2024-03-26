@@ -12,6 +12,11 @@ class CleanUpFile:
         self.file_obj = open(self.filename, "w")
         return self
 
-    def __exit__(self, exc_type: object, exc_val: object, exc_tb: object) -> None:
+    def __exit__(
+            self,
+            exc_type: object,
+            exc_val: object,
+            exc_tb: object
+    ) -> None:
         self.file_obj.close()
         remove(self.filename)
