@@ -2,12 +2,11 @@ import os
 
 
 class CleanUpFile:
-    def __init__(self, name) -> None:
-        self.name = name
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
 
     def __enter__(self) -> None:
-        self.name = open(self.name)
-        return self.name
+        return self
 
-    def __exit__(self) -> None:
-        os.remove(self.name)
+    def __exit__(self, exc_type: None, exc_value: None, exc_tb: None) -> None:
+        os.remove("file.txt")
