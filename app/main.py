@@ -9,7 +9,6 @@ class CleanUpFile:
         self.file = None
 
     def __enter__(self) -> CleanUpFile:
-        self.file = open(self.filename, "w")
         return self
 
     def __exit__(
@@ -18,7 +17,4 @@ class CleanUpFile:
             exc_val: Any,
             exc_tb: Any
     ) -> None:
-        self.file.close()
-
-        if os.path.exists(self.filename):
-            os.remove(self.filename)
+        os.remove(self.filename)
