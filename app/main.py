@@ -1,5 +1,6 @@
 from __future__ import annotations
 import os
+from typing import Any
 
 
 class CleanUpFile:
@@ -10,7 +11,7 @@ class CleanUpFile:
         self.file = open(self.filename, "w")
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         self.file.close()
         if os.path.isfile(self.filename):
             self.__del__()
