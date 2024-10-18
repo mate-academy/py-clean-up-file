@@ -11,12 +11,13 @@ class CleanUpFile:
         return self
 
     def __exit__(self,
-                 exc_type: Any, exc_value: Any, exc_traceback: Any) -> None:
+                 exc_type: Any, exc_value: Any, exc_traceback: Any) -> bool:
         if not self.filename:
-            return
+            return False
         try:
             open(self.filename, "r")
         except FileNotFoundError:
-            return
+            return True
         else:
             os.remove(self.filename)
+            return True
