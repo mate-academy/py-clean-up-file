@@ -1,5 +1,4 @@
 from __future__ import annotations
-from typing import Any
 import os
 
 
@@ -10,14 +9,11 @@ class CleanUpFile:
     def __enter__(self) -> CleanUpFile:
         return self
 
-    def __exit__(self,
-                 exc_type: Any, exc_value: Any, exc_traceback: Any) -> bool:
+    def __exit__(self, exc_type: Exception | None,
+                 exc_value: Exception | None,
+                 exc_traceback: Exception | None) -> bool:
         if not self.filename:
             return False
-        try:
-            open(self.filename, "r")
-        except FileNotFoundError:
-            return True
-        else:
+        if os.path.exists(self.filename):
             os.remove(self.filename)
-            return True
+        return True
