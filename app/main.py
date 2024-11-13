@@ -1,14 +1,14 @@
+from __future__ import annotations
 import os
-from typing import Any
 
 
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self) -> Any:
+    def __enter__(self) -> CleanUpFile:
         self.file = open(self.filename, "w")
-        return self.filename
+        return self
 
     def __exit__(self, exc_type: type, exc_val: str,
                  exc_tb: BaseException) -> None:
