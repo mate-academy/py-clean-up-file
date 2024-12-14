@@ -1,5 +1,6 @@
 import os
 
+
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
         """Initialize with the filename to be cleaned up."""
@@ -13,7 +14,10 @@ class CleanUpFile:
         """Exit the context and remove the file if it exists."""
         if os.path.exists(self.filename):
             os.remove(self.filename)
-            print(f"File {self.filename} has been removed.")
+            print(
+                f"File {self.filename} has been removed."
+            )  # Line break to avoid line too long warning.
+
 
 # Example usage:
 with CleanUpFile("file.txt"):
