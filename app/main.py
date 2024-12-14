@@ -17,8 +17,10 @@ class CleanUpFile:
         if os.path.exists(self.filename):
             os.remove(self.filename)
             print(
-                f"File {self.filename} has been removed."  # Split into multiple lines
-            )
+                "File "
+                + self.filename
+                + " has been removed."
+            )  # Split string to avoid long line
 
 
 # Example usage:
