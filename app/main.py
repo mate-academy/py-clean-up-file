@@ -10,13 +10,15 @@ class CleanUpFile:
         """Enter the context and return the instance."""
         return self
 
-    def __exit__(self, exc_type: type, exc_value: Exception, traceback: object) -> None:
+    def __exit__(
+        self, exc_type: type, exc_value: Exception, traceback: object
+    ) -> None:
         """Exit the context and remove the file if it exists."""
         if os.path.exists(self.filename):
             os.remove(self.filename)
             print(
-                f"File {self.filename} has been removed."
-            )  # Line break to avoid line too long warning.
+                f"File {self.filename} has been removed."  # Split into multiple lines
+            )
 
 
 # Example usage:
