@@ -2,8 +2,8 @@ import os
 
 
 class CleanUpFile:
-    def __init__(self, file_name: str) -> None:
-        self.file_name = file_name
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
 
     def __enter__(self) -> "CleanUpFile":
         return self
@@ -12,5 +12,5 @@ class CleanUpFile:
                  exc_type: type,
                  exc_value: Exception,
                  exc_traceback: object) -> None:
-        if os.path.exists(self.file_name):
-            os.remove(self.file_name)
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
