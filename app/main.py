@@ -13,8 +13,7 @@ class CleanUpFile:
     def __exit__(self,
                  exc_type: str,
                  exc_value: str,
-                 exc_traceback: str
-    ) -> None:
+                 exc_traceback: str) -> None:
         self.file.close()
         if os.path.exists(self.filename):
             os.remove(self.filename)
