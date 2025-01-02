@@ -1,4 +1,4 @@
-import _io
+from __future__ import annotations
 import os
 
 
@@ -7,13 +7,15 @@ class CleanUpFile:
         self.filename = filename
         self.file = None
 
-
-    def __enter__(self, mode: str = "w") -> _io.TextIOWrapper:
+    def __enter__(self, mode: str = "w") -> CleanUpFile:
         self.file = open(self.filename, mode)
-        return self.file
+        return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(
+            self,
+            exc_type: object,
+            exc_val: object,
+            exc_tb: object
+    ) -> None :
         self.file.close()
         os.remove(self.filename)
-
-
