@@ -18,4 +18,3 @@ class CleanUpFile:
         if os.path.exists(self.filename):
             os.remove(self.filename)
         return None
-git commit -am 'Solution'
