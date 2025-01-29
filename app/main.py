@@ -6,7 +6,7 @@ class CleanUpFile:
         self.filename = filename
 
     def __enter__(self) -> "CleanUpFile":
-        return self.file
+        return self
 
     def __exit__(self,
                  exc_type: type,
