@@ -12,7 +12,7 @@ class CleanUpFile:
 
     def __exit__(
             self,
-            exc_type: Optional[type],
+            exc_type: Optional[type[BaseException]],
             exc_value: Optional[BaseException],
             traceback: Optional[traceback]) -> None:
         if os.path.exists(self.filename):
