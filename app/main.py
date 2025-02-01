@@ -1,6 +1,6 @@
 import os
-import traceback
-from typing import Optional
+from typing import Optional, Type
+from types import TracebackType
 
 
 class CleanUpFile:
@@ -11,9 +11,10 @@ class CleanUpFile:
         return self
 
     def __exit__(
-            self,
-            exc_type: Optional[type[BaseException]],
-            exc_value: Optional[BaseException],
-            traceback: Optional[traceback]) -> None:
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        traceback: Optional[TracebackType]
+    ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
