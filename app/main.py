@@ -10,9 +10,9 @@ class CleanUpFile:
         return self
 
     def __exit__(
-        self, 
-        exc_type: Optional[Type[BaseException]], 
-        exc_value: Optional[BaseException], 
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
         traceback: Optional[Any]
     ) -> None:
         if os.path.exists(self.filename):
