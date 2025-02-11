@@ -1,11 +1,14 @@
 import os
 
+
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
+
     def __enter__(self) -> "CleanUpFile":
         return self
+
 
     def __exit__(
             self,
@@ -18,6 +21,7 @@ class CleanUpFile:
             print(f"File '{self.filename}' has been deleted.")
         else:
             print(f"File '{self.filename}' does not exist.")
+
 
 with CleanUpFile("file.txt"):
     with open("file.txt", "w") as file:
