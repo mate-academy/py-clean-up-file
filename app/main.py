@@ -8,7 +8,7 @@ class CleanUpFile:
         self.filename = filename
 
     def __enter__(self) -> T:
-        return self
+        return self  # Returns an instance of CleanUpFile or its subclass
 
     def __exit__(
             self,
