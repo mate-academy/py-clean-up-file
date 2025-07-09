@@ -21,5 +21,5 @@ with CleanUpFile(“file.txt”):
     with open(“file.txt”, “w”) as file:
         file.write(“Hello Mate!”)
 ```
-
+ 
 After executing the code, the "file.txt" file should not exist.
