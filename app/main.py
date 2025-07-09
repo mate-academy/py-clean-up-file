@@ -1,4 +1,6 @@
 from __future__ import annotations
+from typing import Optional, Type
+from types import TracebackType
 import os
 
 
@@ -9,6 +11,11 @@ class CleanUpFile:
     def __enter__(self) -> CleanUpFile:
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(
+            self,
+            exc_type: Optional[Type[BaseException]],
+            exc_val: Optional[BaseException],
+            exc_tb: Optional[TracebackType]
+    ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
