@@ -5,7 +5,8 @@
 Create a custom context manager:
 
 In this task, create a custom context manager.
-Implement the `CleanUpFile` context manager as a class. It should remove the file if it exists after exiting. To remove the file use:
+Implement the `CleanUpFile` context manager as a class. It should remove the file if it exists after exiting. 
+To remove the file use:
 
 ```python
 import os
