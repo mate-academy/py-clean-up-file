@@ -15,7 +15,7 @@ class CleanUpFile:
             exc_type: Optional[Type[BaseException]],
             exc_val: Optional[BaseException],
             exc_tb: Optional[TracebackType]
-) -> None:
+    ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
         return None
