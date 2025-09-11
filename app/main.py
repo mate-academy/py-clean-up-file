@@ -7,7 +7,7 @@ class CleanUpFile:
         self.open_type = open_type
         self.file = None
 
-    def __enter__(self):
+    def __enter__(self) -> any:
         self.file = open(self.filename, "w")
         return self
 
