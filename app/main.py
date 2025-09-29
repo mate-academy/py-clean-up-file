@@ -1,3 +1,6 @@
+import os
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
