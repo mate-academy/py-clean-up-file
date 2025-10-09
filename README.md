@@ -23,3 +23,4 @@ with CleanUpFile(“file.txt”):
 ```
 
 After executing the code, the "file.txt" file should not exist.
+p
