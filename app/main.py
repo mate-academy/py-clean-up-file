@@ -9,7 +9,7 @@ class CleanUpFile:
     def __enter__(self) -> CleanUpFile:
         return self
 
-    def __exit__(self) -> bool:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
         try:
             os.remove(self.filename)
         except OSError:
