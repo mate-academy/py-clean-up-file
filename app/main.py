@@ -1,7 +1,6 @@
 import os
 from typing import Optional, Type
 import types
-from typing import Self
 
 
 class CleanUpFile:
@@ -9,7 +8,7 @@ class CleanUpFile:
         self.filename = filename
         self.file = None
 
-    def __enter__(self) -> Self:
+    def __enter__(self) -> "CleanUpFile":
         self.file = open(self.filename, "w", encoding="utf-8")
         return self
 
