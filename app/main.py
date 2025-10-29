@@ -25,5 +25,3 @@ class CleanUpFile:
             os.remove(self.filename)
         # Do not suppress exceptions
         return False
-
-
