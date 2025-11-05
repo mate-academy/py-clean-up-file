@@ -1,12 +1,13 @@
 import os
 
+
 class CleanUpFile:
-    def __init__(self, filename: str):
+    def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self):
+    def __enter__(self) -> "CleanUpFile":
         return self  # no setup required
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type: any, exc_val: any, exc_tb: any) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
