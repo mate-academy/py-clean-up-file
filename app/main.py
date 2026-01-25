@@ -9,5 +9,5 @@ class CleanUpFile:
     def __enter__(self) -> CleanUpFile:
         return self
 
-    def __exit__(self, type, value, traceback) -> None:
+    def __exit__(self, ex_type: str, ex_alue: str, ex_traceback: str) -> None:
         os.remove(self.filename)
