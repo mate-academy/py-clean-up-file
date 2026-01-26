@@ -4,7 +4,7 @@ import types
 
 class CleanUpFile:
     def __init__(self, file_name: str) -> None:
-        self.file_name = file_name
+        self.filename = file_name
 
     def __enter__(self) -> "CleanUpFile":
         return self
@@ -15,5 +15,5 @@ class CleanUpFile:
             exc_val: BaseException | None,
             exc_tb: types.TracebackType | None
     ) -> bool | None:
-        if os.path.exists(self.file_name):
-            os.remove(self.file_name)
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
