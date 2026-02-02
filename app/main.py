@@ -23,5 +23,5 @@ class CleanUpFile:
     def __del__(self) -> None:
         try:
             os.remove(self.filename)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             pass
