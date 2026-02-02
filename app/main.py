@@ -24,4 +24,4 @@ class CleanUpFile:
         try:
             os.remove(self.filename)
         except FileNotFoundError as e:
-            print(e)
+            pass
