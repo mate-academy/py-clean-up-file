@@ -1,16 +1,20 @@
 import os
+from typing import Optional, Type
+from types import TracebackType
+
 
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self):
-        open(self.filename, 'w')
+    def __enter__(self) -> object:
+        open(self.filename, "w")
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type: Optional[Type[BaseException]],
+                 exc_val: Optional[BaseException],
+                 exc_tb: Optional[TracebackType]) -> None:
         pass
 
     def __del__(self) -> None:
         os.remove(self.filename)
-
