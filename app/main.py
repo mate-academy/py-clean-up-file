@@ -1,3 +1,19 @@
+from __future__ import annotations
+import os
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+        self.file = None
+
+    def __enter__(self) -> CleanUpFile:
+        self.file = open(self.filename, "w")
+        return self
+
+    def __exit__(self, exc_type: str, exc_val: str, exc_tb: str) -> None:
+        self.file.close()
+        try:
+            os.remove(self.filename)
+        except FileNotFoundError:
+            return None
