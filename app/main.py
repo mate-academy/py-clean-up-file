@@ -1,3 +1,23 @@
+import os
+from types import TracebackType
+from typing import Type
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+
+    def __enter__(self) -> object:
+        return self
+
+    def __exit__(
+            self,
+            exc_type: Type[BaseException] | None,
+            exc_val: BaseException | None,
+            exc_tb: TracebackType | None
+    ) -> None:
+        try:
+            os.remove(self.filename)
+        except FileNotFoundError:
+            pass
