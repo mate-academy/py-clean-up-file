@@ -1,3 +1,20 @@
+import os
+from types import TracebackType
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+        self.file = open(self.filename, "w")
+
+    def __enter__(self) -> CleanUpFile:
+        return self
+
+    def __exit__(
+            self,
+            exc_type: type[BaseException] | None,
+            exc_val: BaseException | None,
+            exc_tb: TracebackType | None
+    ) -> None:
+        self.file.close()
+        os.remove(self.filename)
