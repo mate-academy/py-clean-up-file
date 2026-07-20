@@ -1,6 +1,6 @@
 name: Test
 
-on: [push, pull_request]
+on: [push, pull_request_target]
 
 jobs:
   test:
@@ -9,7 +9,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-       
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+
       - name: Set Up Python 3.14
         uses: actions/setup-python@v2
         with:
