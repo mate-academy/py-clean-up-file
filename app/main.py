@@ -15,5 +15,6 @@ class CleanUpFile:
             exc_val: Exception | None,
             exc_tb: object | None,
     ) -> None:
+
         if os.path.exists(self.filename):
             os.remove(self.filename)
