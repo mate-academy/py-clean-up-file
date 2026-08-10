@@ -37,3 +37,12 @@ def test_clean_up_file_constructor():
 def test_clean_up_file_enter_method():
     clean_up = CleanUpFile(filename)
     assert clean_up.__enter__() == clean_up, "__enter__ should return class instance"
+
+
+
+
+
+
+
+
+
