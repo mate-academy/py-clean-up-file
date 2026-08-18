@@ -8,7 +8,7 @@ class CleanUpFile:
 
     def __enter__(self) -> TextIO:
         self.handle = open(self.filename, "a")
-        return self.handle
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
         if os.path.exists(self.filename):
