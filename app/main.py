@@ -9,7 +9,7 @@ class CleanUpFile:
         open(self.file_name, "a").close()
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
-        if os.path.exists(self.sciezka):
-            os.remove(self.sciezka)
-            print(f"Delete file: {self.sciezka}")
+        if os.path.exists(self.file_name):
+            os.remove(self.file_name)
+            print(f"Delete file: {self.file_name}")
         return False
