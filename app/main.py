@@ -1,3 +1,21 @@
+import os
+from typing import Optional
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+
+    def __enter__(self) -> CleanUpFile:
+        return self
+
+    def __exit__(
+            self,
+            exc_type: Optional,
+            exc_val: Optional,
+            exc_tb: Optional
+    ) -> None:
+        pass
+
+    def __del__(self) -> None:
+        os.remove(self.filename)
