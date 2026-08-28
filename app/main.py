@@ -1,3 +1,15 @@
+import os
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+        self.file = open(self.filename, "w+")
+
+    def __enter__(self) -> type:
+        return self
+
+    def __exit__(self, *args: tuple) -> None:
+        self.file.close()
+        os.remove(self.filename)
