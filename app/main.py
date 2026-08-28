@@ -1,3 +1,17 @@
+import os
+from typing import Any
+
+
 class CleanUpFile:
-    # write your code here
-    pass
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
+
+    def __enter__(self) -> None:
+        return self
+
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
+            print("File successfully removed")
+        else:
+            print("File not exists")
