@@ -1,18 +1,15 @@
 import os
 from types import TracebackType
-from typing import IO, Optional, Type
+from typing import Optional, Type
 
 
 class CleanUpFile:
-
     def __init__(self, filename: str) -> None:
         self.filename = filename
-        self.file: Optional[IO[str]] = None
+        self.file = None
 
-    def __enter__(self) -> IO[str]:
-        if self.file is None or self.file.closed:
-            self.file = open(self.filename, "r", encoding="utf-8")
-        return self.file
+    def __enter__(self) -> "CleanUpFile":
+        return self
 
     def __exit__(
         self,
@@ -20,7 +17,7 @@ class CleanUpFile:
         exc_value: Optional[BaseException],
         traceback: Optional[TracebackType],
     ) -> None:
-        if self.file and not self.file.closed:
+        if self.file is not None and not self.file.closed:
             self.file.close()
 
         if os.path.exists(self.filename):
