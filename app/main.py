@@ -10,7 +10,7 @@ class CleanUpFile:
         self.file: Optional[IO[str]] = None
 
     def __enter__(self) -> IO[str]:
-        if not self.file and not self.file.closed:
+        if self.file is None or self.file.closed:
             self.file = open(self.filename, "r", encoding="utf-8")
         return self.file
 
