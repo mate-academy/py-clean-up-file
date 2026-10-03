@@ -5,12 +5,13 @@ from typing import IO, Optional, Type
 
 class CleanUpFile:
 
-    def __init__(self, file_name: str) -> None:
-        self.file_name = file_name
+    def __init__(self, filename: str) -> None:
+        self.filename = filename
         self.file: Optional[IO[str]] = None
 
     def __enter__(self) -> IO[str]:
-        self.file = open(self.file_name, "r", encoding="utf-8")
+        if not self.file and not self.file.closed:
+            self.file = open(self.filename, "r", encoding="utf-8")
         return self.file
 
     def __exit__(
@@ -22,5 +23,5 @@ class CleanUpFile:
         if self.file and not self.file.closed:
             self.file.close()
 
-        if os.path.exists(self.file_name):
-            os.remove(self.file_name)
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
