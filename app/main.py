@@ -1,5 +1,5 @@
 import os
-from types import TracebackType
+from typing import Any
 
 
 class CleanUpFile:
@@ -11,9 +11,9 @@ class CleanUpFile:
 
     def __exit__(
         self,
-        exc_type: type[BaseException] | None,
-        exc_val: BaseException | None,
-        exc_tb: TracebackType | None,
+        exc_type: Any,
+        exc_val: Any,
+        exc_tb: Any,
     ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
