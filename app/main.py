@@ -1,5 +1,6 @@
 import os
 
+
 class CleanUpFile:
     def __init__(self, filename: any) -> None:
         self.filename = filename
